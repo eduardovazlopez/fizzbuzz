@@ -9,7 +9,7 @@ namespace FizzBuzzProject.Services
     {
         public static void ExecuteFizzBuzz(IList<string> result, int length = 100)
         {
-            for (int i = 1; i < length; i++)
+            for (int i = 1; i <= length; i++)
             {
                 if (i % 3 == 0 && i % 5 == 0)
                 {
