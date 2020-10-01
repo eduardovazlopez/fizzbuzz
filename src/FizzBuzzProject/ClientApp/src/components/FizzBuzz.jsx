@@ -32,7 +32,7 @@ export class FizzBuzz extends Component {
                     <Card hoverable key={i} style={{ width: 200 }}>
                         <ul key={i}>
                             {slice.map((e, index) => (
-                                <li id={i + index} key={i + index}>{e}</li>
+                                <li id={i + index} name="FBli" key={i + index}>{e}</li>
                             ))}
                         </ul>
                     </Card>
