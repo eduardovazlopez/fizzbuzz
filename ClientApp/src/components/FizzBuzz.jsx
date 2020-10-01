@@ -28,11 +28,11 @@ export class FizzBuzz extends Component {
 
             slice = _.slice(elementList, i, i + 20);
             content.push(
-                <Col>
-                    <Card hoverable style={{ width: 200 }}>
-                        <ul>
-                            {slice.map((e) => (
-                                <li>{e}</li>
+                <Col key={i}>
+                    <Card hoverable key={i} style={{ width: 200 }}>
+                        <ul key={i}>
+                            {slice.map((e, index) => (
+                                <li id={i + index} key={i + index}>{e}</li>
                             ))}
                         </ul>
                     </Card>
@@ -55,10 +55,11 @@ export class FizzBuzz extends Component {
                     className="m-3"
                     onClick={this.handleExecuteFizzBuzz}
                     type="primary"
+                    id="RunTestButton"
                 >
                     Execute FizzBuzz Test
         </Button>
-                <Button className="m-3" onClick={this.handleCleanBoard} type="primary">
+                <Button className="m-3" onClick={this.handleCleanBoard} type="primary" id="CleanButton">
                     Clean Board
         </Button>
                 {this.formatUL(this.state.FizzBuzzList)}
