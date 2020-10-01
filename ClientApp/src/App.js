@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { Layout } from './components/Layout';
 import { FizzBuzz } from './components/FizzBuzz';
-import { FetchData } from './components/FetchData';
 import { About } from './components/About';
 
 import './custom.css'
