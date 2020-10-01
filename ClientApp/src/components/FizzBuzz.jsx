@@ -1,6 +1,7 @@
 ﻿import React, { Component } from "react";
-import { Button } from "antd";
+import { Button, Row, Col, Card } from "antd";
 import axios from "axios";
+import _ from "lodash";
 
 export class FizzBuzz extends Component {
     state = {
@@ -17,20 +18,50 @@ export class FizzBuzz extends Component {
 
     handleCleanBoard = () => this.setState({ FizzBuzzList: [] });
 
+    formatUL = (elementList) => {
+        let content = [];
+        let slice = [];
+        let i = 0;
+
+        while (i < elementList.length) {
+            console.log("Hola de nuevo", i, elementList.length);
+
+            slice = _.slice(elementList, i, i + 20);
+            content.push(
+                <Col>
+                    <Card hoverable style={{ width: 200 }}>
+                        <ul>
+                            {slice.map((e) => (
+                                <li>{e}</li>
+                            ))}
+                        </ul>
+                    </Card>
+                </Col>
+            );
+            i += 20;
+        }
+
+        return (
+            <div>
+                <Row>{content}</Row>
+            </div>
+        );
+    };
+
     render() {
         return (
             <div>
-                <Button onClick={this.handleExecuteFizzBuzz} type="primary">
+                <Button
+                    className="m-3"
+                    onClick={this.handleExecuteFizzBuzz}
+                    type="primary"
+                >
                     Execute FizzBuzz Test
         </Button>
-                <Button onClick={this.handleCleanBoard} type="primary">
+                <Button className="m-3" onClick={this.handleCleanBoard} type="primary">
                     Clean Board
         </Button>
-                <ul>
-                    {this.state.FizzBuzzList.map((i, index) => (
-                        <li key={index}>{i}</li>
-                    ))}
-                </ul>
+                {this.formatUL(this.state.FizzBuzzList)}
             </div>
         );
     }
